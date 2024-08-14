@@ -7,10 +7,10 @@ import pygame
 class App:
     def __init__(self) -> None:          
         self.WIDTH,self.HEIGHT=600,600
-        self.FPS=30
+        self.FPS=120
         self.CLOCK=pygame.time.Clock()
         self.WINDOW=pygame.display.set_mode((self.WIDTH,self.HEIGHT))
-        self.speed=10
+        self.speed=100
     def run(self):
         static_body=Body(300,100)
         while True:  
@@ -19,13 +19,14 @@ class App:
             for event in pygame.event.get():
                 if event.type==pygame.QUIT:
                     exit()
-                if event.type==pygame.KEYMAPCHANGED:
+                if event.type==pygame.KEYDOWN:
                     key=event.key
                     self.keyboard_interraction(key,static_body)
             static_body.draw(self.WINDOW)
             pygame.display.flip()
             self.CLOCK.tick(self.FPS)	
     def keyboard_interraction(self,key,body):
+        print(body.x,body.y)
         match key:
             case pygame.K_UP:
                 body.y-=self.speed
@@ -35,6 +36,15 @@ class App:
                 body.x+=self.speed
             case pygame.K_LEFT:
                 body.x-=self.speed
+        if body.x>self.WIDTH:
+            body.x=0
+        if body.x<0:
+            body.x=self.WIDTH
+        if body.y>self.HEIGHT:
+            body.y=0
+        if body.y<0:
+            body.y=self.HEIGHT
+
 
 
 class Body:
