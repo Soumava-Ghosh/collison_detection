@@ -30,8 +30,10 @@ class App:
 
             if (is_coliding(moving_body, static_body)):
                 moving_body.color = 'red'
+                static_body.color = 'red'
             else:
                 moving_body.color = 'green'
+                static_body.color = 'red'
             self.check_boundary(static_body)
             static_body.draw(self.WINDOW)
             moving_body.draw(self.WINDOW)
