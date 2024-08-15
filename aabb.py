@@ -25,6 +25,7 @@ class App:
 
             key = pygame.key.get_pressed()
             pos = pygame.mouse.get_pos()
+            pygame.mouse.set_visible(0)
             self.keyboard_interraction(key, static_body)
             self.mouse_interaction(moving_body, pos)
 
@@ -41,7 +42,6 @@ class App:
             self.CLOCK.tick(self.FPS)
 
     def keyboard_interraction(self, key, body):
-        # if bool:
         #     match key:
         #         case pygame.K_UP:
         #             body.y -= self.speed
