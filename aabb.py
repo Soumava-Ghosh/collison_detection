@@ -33,7 +33,7 @@ class App:
                 static_body.color = 'red'
             else:
                 moving_body.color = 'green'
-                static_body.color = 'red'
+                static_body.color = 'blue'
             self.check_boundary(static_body)
             static_body.draw(self.WINDOW)
             moving_body.draw(self.WINDOW)
