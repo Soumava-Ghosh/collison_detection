@@ -3,7 +3,7 @@ import pygame
 class App:
     def __init__(self) -> None:          
         self.WIDTH,self.HEIGHT=800,600
-        self.FPS=30
+        self.FPS=120
         self.CLOCK=pygame.time.Clock()
         self.WINDOW=pygame.display.set_mode((self.WIDTH,self.HEIGHT))
     def run(self):
